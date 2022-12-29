@@ -17,12 +17,12 @@ def rastreio(nf):
     response = requests.request("GET", url, data=payload, headers=headers)
 
     if response.status_code == '400':
-        return "Não foi possível rastrear o pedido"
+        return "Não foi possível rastrear o pedido", 400, {'ContentType':'application/json'} 
     else:
         if len(response.json()['content']) == 0:
-            return "Número da NF não encontrado"
+            return "Número da NF não encontrado", 200, {'ContentType':'application/json'} 
         else:
-            return(transformar(response.json()))
+            return(transformar(response.json())), 200, {'ContentType':'application/json'} 
 
 def transformar(data):
     content = data['content'][0]
