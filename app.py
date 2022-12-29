@@ -2,9 +2,9 @@ from flask import Flask
 import requests
 app = Flask(__name__)
 
-@app.route('/')
-def hello_world():
-    url = "https://api.intelipost.com.br/api/v1/shipment_order/invoice/66511"
+@app.route('/rastreio/<nf>')
+def hello_world(nf):
+    url = f"https://api.intelipost.com.br/api/v1/shipment_order/invoice/{nf}"
 
     payload = ""
     headers = {
