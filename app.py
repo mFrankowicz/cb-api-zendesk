@@ -1,5 +1,7 @@
 from flask import Flask
 import requests
+import datetime
+import json
 app = Flask(__name__)
 
 @app.route('/rastrear/<nf>')
